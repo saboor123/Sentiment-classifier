@@ -23,39 +23,7 @@ Analysis, we discuss a few characteristics of Twitter:
 **Domain of topics**
      People often post about their likes and dislikes on social media. These are not al concentrated around one topic. This makes twitter a unique place to model a generic classifier as opposed to domain specific classifiers that could be build datasets such as movie reviews. 
      
-     
-## 2  Related Work
-
-### 2.1 [Go, Bhayani and Huang (2009)](http://www-cs.stanford.edu/people/alecmgo/papers/TwitterDistantSupervision09.pdf)
-
- They classify Tweets for a query term into negative or positive sentiment. They collect training dataset automatically from Twitter. To collect positive and negative tweets, they query twitter for happy and sad emoticons.
- 
- * Happy emoticons are different versions of smiling face, like ":)", ":-)", ": )", ":D", "=)" etc.
- * Sad emoticons include frowns, like ":(", ":-(", ":(" etc.
- 
-They try various features – unigrams, bigrams and Part-of-Speech and train their classifier on various machine learning algorithms – Naive Bayes, Maximum Entropy and Scalable Vector Machines and compare it against a baseline classifier by counting the number of positive and negative words from a publicly available corpus. They report that Bigrams alone and Part-of-Speech Tagging are not helpful and that Naive Bayes Classifier gives the best results.
-
-### 2.2 [Pak and Paroubek (2010)](https://pdfs.semanticscholar.org/ad8a/7f620a57478ff70045f97abc7aec9687ccbd.pdf)
-
-They identify that use of informal and creative language make sentiment analysis of tweets a rather different task . They leverage previous work done in hashtags and sentiment analysis to build their classifier. They use Edinburgh Twitter corpus to find out most frequent hashtags. They manually classify these hashtags and use them to in turn classify the tweets. Apart from using n-grams and Part-of-Speech features, they also build a feature set from already existing MPQA subjectivity lexicon and Internet Lingo Dictionary. They report that the best results are seen with n-gram features with lexicon features, while using Part-of-Speech features causes a drop in accuracy.
-
-### 2.3 [Koulompis, Wilson and Moore (2011)](http://www.aclweb.org/website/old_anthology/S/S13/S13-2.pdf#page=526)
-
-They investigated the utility of linguistic features for detecting the sentiment of Twitter messages. They evaluated
-the usefulness of existing lexical resources as well as features that capture information about the informal and creative language
-used in microblogging. They took a supervised approach to the problem, but leverage existing hashtags in the Twitter
-data for building training data.
-
-### 2.3 [Saif, He and Alani (2012)](http://oro.open.ac.uk/34929/1/76490497.pdf)
-
-They discuss a semantic based approach to identify the entity being discussed in a tweet, like a person, organization etc. They also demonstrate that removal of stop words is not a necessary step and may have undesirable effect on the classifier.
-
-
-All of the aforementioned techniques rely on n-gram features. It is unclear that the use of Part-of-Speech tagging is useful or not. To improve accuracy, some employ different methods of feature selection or leveraging knowledge about micro-blogging. In contrast, we improve our results by using more basic techniques used in Sentiment Analysis, like stemming, two-step classification and negation detection and scope of negation.
-
-Negation detection is a technique that has often been studied in sentiment analysis. Negation words like “not”, “never”, “no” etc. can drastically change the meaning of a sentence and hence the sentiment expressed in them. Due to presence of such words, the meaning of nearby words becomes opposite. Such words are said to be in the scope of negation. Many researches have worked on detecting the scope of negation.
-
-The scope of negation of a cue can be taken from that word to the next following punctuation. Councill, McDonald and Velikovich (2010) discuss a technique to identify negation cues and their scope in a sentence. They identify explicit negation cues in the text and for each word in the scope. Then they find its distance from the nearest negative cue on the left and right.
+    
 
 ##  3  Approach
 
