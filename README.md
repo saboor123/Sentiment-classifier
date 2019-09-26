@@ -121,31 +121,6 @@ algorithms. Figure 2 illustrates various features seen in micro-blogging.
 Table 3 illustrates the frequency of these features per tweet, cut by
 datasets. We also give a brief description of pre-processing steps taken.
 
-![Figure](http://i.imgur.com/KqJnVTx.png)
-
-Figure 2: Illustration of a Tweet with various features
-
-<div style="text-align:center">
-<table border="1">
-<tr><td align="left"></td><td colspan="2" align="center">Twitter Sentiment
- </td><td colspan="2" align="center">Stanford Corpus
- </td><td colspan="2" align="center">Both </td></tr>
-<tr><td align="left">Features   </td><td colspan="1" align="center">Avg. </td><td colspan="1" align="center">Max.
-            </td><td colspan="1" align="center">Avg. </td><td colspan="1" align="center">Max.
-            </td><td colspan="1" align="center">Avg. </td><td colspan="1" align="center">Max. </td></tr>
-<tr><td align="left">Handles        </td><td align="right">0.6761 </td><td align="right">8 </td><td align="right">0.4888 </td><td align="right">10 </td><td align="right">0.5804 </td><td align="right">10 </td></tr>
-<tr><td align="left">Hashtags   </td><td align="right">2.0276 </td><td align="right">13 </td><td align="right">0.0282 </td><td align="right">11 </td><td align="right">1.0056 </td><td align="right">13 </td></tr>
-<tr><td align="left">Urls       </td><td align="right">0.4431 </td><td align="right">4 </td><td align="right">0.0452 </td><td align="right">2 </td><td align="right">0.2397 </td><td align="right">4 </td></tr>
-<tr><td align="left">Emoticons  </td><td align="right">0.0550 </td><td align="right">3 </td><td align="right">0.0154 </td><td align="right">4 </td><td align="right">0.0348 </td><td align="right">4 </td></tr>
-<tr><td align="left">Words      </td><td align="right">14.4084 </td><td align="right">31 </td><td align="right">13.2056 </td><td align="right">33 </td><td align="right">13.7936 </td><td align="right">33 </td></tr></table>
-
-
-<div class="p"><!----></div>
-<div style="text-align:center">Table 3: Frequency of Features per Tweet</div>
-<a id="tab:feat_freq">
-</a>
-</div>
-
 ####  3.2.1  Hashtags
 
 A hashtag is a word or an un-spaced phrase prefixed with the hash symbol (#).
@@ -236,37 +211,6 @@ we replace characters repeating more than twice as two characters.
 Regular Expression: `(.)\1{1,}`
 
 Replace Expression: `\1\1`
-
-#### Reduction in feature space
-
-It’s important to note that by applying these pre-processing steps, we are
-reducing our feature set otherwise it can be too sparse. Table 6 lists the
-decrease in feature set due to processing each of these features.
-
-<div style="text-align:center">
-<table border="1">
-<tr><td align="left"></td><td colspan="2" align="center">Twitter Sentiment
- </td><td colspan="2" align="center">Stanford Corpus
- </td><td colspan="2" align="center">Both </td></tr>
-<tr><td align="left">Preprocessing
-            </td><td colspan="1" align="center">Words </td><td colspan="1" align="center">Percentage
-            </td><td colspan="1" align="center">Words </td><td colspan="1" align="center">Percentage
-            </td><td colspan="1" align="center">Words </td><td colspan="1" align="center">Percentage </td></tr>
-<tr><td align="left">None           </td><td align="right">19128 </td><td align="right"></td><td align="right">15910 </td><td align="right"></td><td align="right">31832 </td><td align="right"></td></tr>
-<tr><td align="left">Hashtags       </td><td align="right">18649 </td><td align="right">97.50% </td><td align="right">15550 </td><td align="right">97.74% </td><td align="right">31223 </td><td align="right">98.09% </td></tr>
-<tr><td align="left">Handles            </td><td align="right">17118 </td><td align="right">89.49% </td><td align="right">13245 </td><td align="right">83.25% </td><td align="right">27383 </td><td align="right">86.02% </td></tr>
-<tr><td align="left">Urls           </td><td align="right">16723 </td><td align="right">87.43% </td><td align="right">15335 </td><td align="right">96.39% </td><td align="right">29083 </td><td align="right">91.36% </td></tr>
-<tr><td align="left">Emoticons      </td><td align="right">18631 </td><td align="right">97.40% </td><td align="right">15541 </td><td align="right">97.68% </td><td align="right">31197 </td><td align="right">98.01% </td></tr>
-<tr><td align="left">Punctuations   </td><td align="right">13724 </td><td align="right">71.75% </td><td align="right">11225 </td><td align="right">70.55% </td><td align="right">22095 </td><td align="right">69.41% </td></tr>
-<tr><td align="left">Repeatings     </td><td align="right">18540 </td><td align="right">96.93% </td><td align="right">15276 </td><td align="right">96.02% </td><td align="right">30818 </td><td align="right">96.81% </td></tr>
-<tr><td align="left">All                </td><td align="right">11108 </td><td align="right">58.07% </td><td align="right">8646 </td><td align="right">54.34% </td><td align="right">16981 </td><td align="right">53.35% </td></tr></table>
-
-
-<div class="p"><!----></div>
-<div style="text-align:center">Table 6: Number of words before and after pre-processing</div>
-<a id="tab:reduction">
-</a>
-</div>
 
 ###  3.3  Stemming Algorithms
 
@@ -393,43 +337,6 @@ of a negation in the text [7]. They describe a method for negation detection
 based on Left and Right Distances of a token to the nearest explicit negation
 cue.
 
-#### Detection of Explicit Negation Cues
-
-To detect explicit negation cues, we are looking for the following words in
-Table 8 . The search is done using regular expressions.
-
-<div style="text-align:center">
-<table border="1">
-<tr><td align="left">S.No. </td><td align="left">Negation Cues </td></tr>
-<tr><td align="left">1.  </td><td align="left">never </td></tr>
-<tr><td align="left">2.  </td><td align="left">no </td></tr>
-<tr><td align="left">3.  </td><td align="left">nothing </td></tr>
-<tr><td align="left">4.  </td><td align="left">nowhere </td></tr>
-<tr><td align="left">5.  </td><td align="left">noone </td></tr>
-<tr><td align="left">6.  </td><td align="left">none </td></tr>
-<tr><td align="left">7.  </td><td align="left">not </td></tr>
-<tr><td align="left">8.  </td><td align="left">havent </td></tr>
-<tr><td align="left">9.  </td><td align="left">hasnt </td></tr>
-<tr><td align="left">10.  </td><td align="left">hadnt </td></tr>
-<tr><td align="left">11.  </td><td align="left">cant </td></tr>
-<tr><td align="left">12.  </td><td align="left">couldnt </td></tr>
-<tr><td align="left">13.  </td><td align="left">shouldnt </td></tr>
-<tr><td align="left">14.  </td><td align="left">wont </td></tr>
-<tr><td align="left">15.  </td><td align="left">wouldnt </td></tr>
-<tr><td align="left">16.  </td><td align="left">dont </td></tr>
-<tr><td align="left">17.  </td><td align="left">doesnt </td></tr>
-<tr><td align="left">18.  </td><td align="left">didnt </td></tr>
-<tr><td align="left">19.  </td><td align="left">isnt </td></tr>
-<tr><td align="left">20.  </td><td align="left">arent </td></tr>
-<tr><td align="left">21.  </td><td align="left">aint </td></tr>
-<tr><td align="left">22.  </td><td align="left">Anything ending with "n't" </td></tr></table>
-
-
-<div style="text-align:center">Table 8: Explicit Negation Cues</div>
-<a id="tab:negation">
-</a>
-</div>
-
 #### Scope of Negation
 
 Words immediately preceding and following the negation cues are the most
@@ -490,30 +397,6 @@ as recall values are higher for single step than that for double step.
 ![Figure](http://i.imgur.com/h2IReTP.png)
 
 Figure 9: Precision vs. Recall for Naive Bayes Classifier
-
-###  4.2  Maximum Entropy Classifier
-
-This classifier works by finding a probability distribution that maximizes the
-likelihood of testable data. This probability function is parameterized by
-weight vector. The optimal value of which can be found out using the method of
-Lagrange multipliers.
-
-  
-The results from training the Maximum Entropy Classifier are shown below in Figure
-10 . Accuracies follow a similar trend as compared to Naive Bayes classifier.
-Unigram is the lowest at 79.73% and we see an increase for negation detection
-at 80.96%. The maximum is achieved with unigrams, bigrams and trigrams at
-85.22% closely followed by n-grams and negation at 85.16%. Once again, the
-accuracies for double step classifiers are considerably lower.
-
-Precision versus Recall map is also shown for maximum entropy classifier in
-Figure 10 . Here we see that precision of "neutral" class increase by using a
-double step classifier, but with a considerable decrease in its recall and
-slight fall in precision of "negative" and "positive" classes.
-
-![Figure](http://i.imgur.com/Ho2wDNW.png)
-
-Figure 10: Precision vs. Recall for Maximum Entropy Classifier
 
 ##  5  Future Work
 
